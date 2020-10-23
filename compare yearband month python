@@ -1,0 +1,17 @@
+conn = db_conn_param.db_engine()
+	conn = db_conn_param.conn_db()
+
+	cursor=conn.cursor()
+	sql="SELECT year(str_to_date(Date,'%d-%m-%Y')) as year,month(str_to_date(Date,'%d-%m-%Y')) as month FROM `nrpc_state_act_sch` where sno=(Select max(sno) from nrpc_state_act_sch)"
+	cursor.execute(sql)
+	date=(cursor.fetchall())
+if(temp==1):
+			year=x.find(date[0])
+			month=x.find(date[1])
+		if(year):
+			temp=2
+		chk_year=int(x[year:year+4])
+		if(chk_year <= int(date[0]) and chk_month <= int(date[1])):
+			continue;
+      
+      
